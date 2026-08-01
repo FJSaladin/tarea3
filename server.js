@@ -6,3 +6,10 @@ app.post('/api/tasks', (req, res) => {
   tasks.push(task);
   res.status(201).json(task);
 });
+
+app.put('/api/tasks/:id', (req, res) => {
+  const task = tasks.find(t => t.id === parseInt(req.params.id));
+  if (!task) return res.status(404).json({ error: 'Tarea no encontrada' });
+  Object.assign(task, req.body);
+  res.json(task);
+});
