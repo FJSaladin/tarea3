@@ -21,6 +21,7 @@ apply_change () {
   local branch="$1"
   case "$branch" in
     "feature/login-form")
+      mkdir -p public
       cat > public/login.html <<'EOF'
 <!DOCTYPE html>
 <html lang="es">
@@ -35,8 +36,6 @@ apply_change () {
 </body>
 </html>
 EOF
-      mkdir -p public
-      mv public/login.html app/public/login.html 2>/dev/null || true
       ;;
     "feature/create-task")
       cat >> server.js <<'EOF'
