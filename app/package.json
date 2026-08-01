@@ -1,0 +1,12 @@
+{
+  "name": "crud-tarea3-gitflow",
+  "version": "1.0.0",
+  "description": "Proyecto CRUD para Tarea 3 - Git y Git Flow",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
