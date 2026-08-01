@@ -13,3 +13,10 @@ app.put('/api/tasks/:id', (req, res) => {
   Object.assign(task, req.body);
   res.json(task);
 });
+
+app.delete('/api/tasks/:id', (req, res) => {
+  const before = tasks.length;
+  tasks = tasks.filter(t => t.id !== parseInt(req.params.id));
+  if (tasks.length === before) return res.status(404).json({ error: 'Tarea no encontrada' });
+  res.status(204).send();
+});
